@@ -1,0 +1,11 @@
+.song{
+    width: 290px;
+}
+
+.song > p{
+    height: 72px;
+}
+
+.button{
+    width: 290px;
+}
