@@ -14,22 +14,23 @@
         {!! Form::open(['route'=>'songs.store']) !!}
             <div class="form-group mt-5">
 
-                {!! Form::label('url','新規登録YouTube動画 "ID" を入力する',['class'=>'text-success']) !!}
-                    <br>例）登録したいYouTube動画のURLが <span>https://www.youtube.com/watch?v=-bNMq1Nxn5o なら</span>
-                    <div>  "v="の直後にある "<span class="text-success">-bNMq1Nxn5o</span>" を入力</div>
+                {!! Form::label('url','Spotifyのプレイリストを登録する',['class'=>'text-success']) !!}
+                    <br>例）PlaylistのURLが <span>https://open.spotify.com/playlist/2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ なら</span>
+                    <div>  "playlist/"の直後の "<span class="text-success">2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ</span>" を入力</div>
+                    <div class="text-danger">＊プレイリスト以外の登録はできません</div>
                 {!! Form::text('url',null,['class'=>'form-control']) !!}
                 
-                {!! Form::label('comment','登録動画へのコメント',['class'=> 'mt-3']) !!}
+                {!! Form::label('comment','Playlistのコメント',['class'=> 'mt-3']) !!}
                 {!! Form::text('comment',null,['class'=>'form-control']) !!}
                 
 
-                {!! Form::submit('新規登録する？',['class'=> 'button btn btn-primary mt-5 mb-5']) !!}
+                {!! Form::submit('登録',['class'=> 'button btn btn-primary mt-5 mb-5']) !!}
 
             </div>
         {!! Form::close() !!}
 
 
-        <h2 class="mt-5">あなたの登録済み動画</h2>
+        <h2 class="mt-5">Your Playlists</h2>
 
         @include('songs.songs', ['songs' => $songs])
 

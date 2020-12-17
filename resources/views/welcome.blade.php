@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <div class="center jumbotron bg-warning">
+    <div class="center jumbotron bg-success">
 
         <div class="text-center text-white">
-            <h1>YouTubeまとめ × SNS</h1>
+            <h1>Music Sharing</h1>
         </div>
 
     </div>
