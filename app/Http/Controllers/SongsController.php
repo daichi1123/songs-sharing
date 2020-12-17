@@ -26,7 +26,7 @@ class SongsController extends Controller
     {
 
         $this->validate($request,[
-            'url' => 'required|max:11',
+            'url' => 'required',
             'comment' => 'max:36',
         ]);
 

@@ -26,9 +26,9 @@
 
                     <div>
                         @if($song)
-                            <iframe width="290" height="163.125" src="{{ 'https://www.youtube.com/embed/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" frameborder="0"></iframe>
+                            <iframe src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                         @else
-                            <iframe width="290" height="163.125" src="https://www.youtube.com/embed/" frameborder="0"></iframe>
+                            <iframe src="https://open.spotify.com/playlist/" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                         @endif
                     </div>
                     
@@ -47,3 +47,4 @@
 </div>
 
 {{ $users->links('pagination::bootstrap-4') }}
+
