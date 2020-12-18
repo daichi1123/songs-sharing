@@ -1,4 +1,4 @@
-<h2 class="mt-5 mb-5">users</h2>
+<h2 class="mt-5 mb-5">User List</h2>
 
 <div class="song row mt-5 text-center">
 
@@ -22,7 +22,7 @@
 
                 <div class="song text-left d-inline-block">
 
-                    ＠{{ $user->name }}
+                    ＠{!! link_to_route('users.show',$user->name,['id'=>$user->id]) !!}
 
                     <div>
                         @if($song)
@@ -37,6 +37,8 @@
                                {{ $song->comment }}
                         @endif
                     </p>
+                    
+                    @include('follow.follow_button',['user'=>$user])
 
                 </div>
                 

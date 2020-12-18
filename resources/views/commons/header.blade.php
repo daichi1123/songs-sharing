@@ -15,7 +15,7 @@
                 @if (Auth::check())
                 
                     <li class="nav-item">{!! link_to_route('logout', 'ログアウト', [], ['class' => 'nav-link text-white']) !!}</li>
-                    <li class="nav-item"><a href="" class="nav-link text-white">マイページ</a></li>
+                    <li class="nav-item">{!! link_to_route('users.show','マイページ',['id'=>Auth::id()],['class'=>'nav-link text-white']) !!}</li>
                     <li class="nav-item">{!! link_to_route('songs.create','プレイリスト登録',['id'=>Auth::id()],['class'=>'nav-link text-white']) !!}</li>
                     
                 @else

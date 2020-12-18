@@ -28,6 +28,11 @@
                         @endif
                     </p>
                     
+                    @if(Auth::id() == $song->user_id)
+                        {!! Form::open(['route' => ['songs.destroy', $song->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('プレイリスト削除', ['class' => 'button btn btn-danger']) !!}
+                        {!! Form::close() !!}
+                    @endif
 
                 </div>
                 

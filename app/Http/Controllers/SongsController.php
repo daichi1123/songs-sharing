@@ -37,4 +37,15 @@ class SongsController extends Controller
 
         return back();
     }
+    
+    public function destroy($id)
+    {
+        $song = Song::find($id);
+
+        if (\Auth::id() == $song->user_id) {
+            $song->delete();
+        }
+
+        return back();
+    }
 }
