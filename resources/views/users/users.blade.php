@@ -39,6 +39,7 @@
                     </p>
                     
                     @include('follow.follow_button',['user'=>$user])
+                    @include('favorites.favorite_button',['song'=>$song])
 
                 </div>
                 

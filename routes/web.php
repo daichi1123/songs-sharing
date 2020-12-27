@@ -34,6 +34,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('follow', 'UserFollowController@store')->name('follow');
         Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
     });
+   
+    Route::group(['prefix'=>'songs/{id}'],function(){
+        Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
+        Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
+    });
     
     Route::resource('songs', 'SongsController', ['only' => ['create', 'store', 'destroy']]);
 });
