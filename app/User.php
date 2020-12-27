@@ -67,4 +67,38 @@ class User extends Authenticatable
             $this->followings()->detach($userId);
         }
     }
+    
+    public function favorites()
+    {
+        return $this->belongsToMany(Song::class, 'favorites', 'user_id', 'song_id')->withTimestamps();
+    }
+
+    public function favorite($songId)
+    {
+        $exist = $this->is_favorite($songId);
+
+        if($exist){
+            return false;
+        }else{
+            $this->favorites()->attach($songId);
+            return true;
+        }
+    }
+
+    public function unfavorite($songId)
+    {
+        $exist = $this->is_favorite($songId);
+
+        if($exist){
+            $this->favorites()->detach($songId);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function is_favorite($songId)
+    {
+        return $this->favorites()->where('song_id',$songId)->exists();
+    }
 }
