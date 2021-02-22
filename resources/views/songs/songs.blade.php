@@ -24,7 +24,9 @@
                     
                     <p>
                         @if(isset($song->comment))
-                            {{ $song->comment }}
+                               コメント：{{ $song->comment }}
+                        @else
+                            <span>※コメント登録されてません</span>
                         @endif
                     </p>
                     

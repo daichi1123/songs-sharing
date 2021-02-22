@@ -19,13 +19,13 @@ class CreateFavoritesTable extends Migration
             $table->integer('song_id')->unsigned()->index();
             $table->timestamps();
             $table->foreign('user_id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->foreign('song_id')
-            ->references('id')
-            ->on('songs')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('songs')
+                ->onDelete('cascade');
 
             $table->unique(['user_id','song_id']);
         });

@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Song;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -77,9 +79,9 @@ class User extends Authenticatable
     {
         $exist = $this->is_favorite($songId);
 
-        if($exist){
+        if($exist) {
             return false;
-        }else{
+        } else {
             $this->favorites()->attach($songId);
             return true;
         }
@@ -89,10 +91,10 @@ class User extends Authenticatable
     {
         $exist = $this->is_favorite($songId);
 
-        if($exist){
+        if($exist) {
             $this->favorites()->detach($songId);
             return true;
-        }else{
+        } else {
             return false;
         }
     }
