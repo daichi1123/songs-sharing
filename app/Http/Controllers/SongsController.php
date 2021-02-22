@@ -48,4 +48,25 @@ class SongsController extends Controller
 
         return back();
     }
+    
+    public function search(Request $request)
+    {
+        $users = \Auth::user();
+        
+        $searchComment = $request->input('playlist_comment');
+        
+        $query = Song::query();
+        
+        if (isset($searchComment)) {
+            $query->where('comment', 'like', '%'.$searchComment.'%');
+        }
+        
+        $songs = $query->orderBy('id', 'asc')->paginate(9);
+        
+        return view('songs.search', [
+            'users' => $users,
+            'searchComment' => $searchComment,
+            'songs' => $songs,
+        ]);
+    }
 }
